@@ -44,9 +44,6 @@ app.use(
 );
 
 // Rate limiting
-// NOTE (serverless): This uses an in-memory store. In Vercel each function
-// instance has its own counter, so limits are per-instance, not global.
-// For strict global rate-limiting, swap the store for Upstash Redis.
 const limiter = rateLimit({
   windowMs: parseInt(env.RATE_LIMIT_WINDOW_MS),
   max: parseInt(env.RATE_LIMIT_MAX_REQUESTS),
