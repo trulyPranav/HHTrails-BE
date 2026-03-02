@@ -1,7 +1,3 @@
-# Source TypeScript — Vercel compiles from api/index.ts directly
-src
-dist
-
 # Local environment — set these in the Vercel dashboard instead
 .env
 .env.*
