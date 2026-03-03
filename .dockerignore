@@ -1,0 +1,37 @@
+# Dependencies (re-installed inside Docker)
+node_modules/
+
+# Build output (rebuilt inside Docker)
+dist/
+
+# Environment files (set in Back4App dashboard, never baked into image)
+.env
+.env.*
+!.env.example
+
+# Git & editor
+.git/
+.gitignore
+.eslintrc.json
+.prettierrc
+nodemon.json
+
+# Vercel / serverless artefacts
+.vercel
+.vercelignore
+vercel.json
+api/
+
+# Docs & notes
+docs/
+*.md
+CHANGELOG.md
+README.md
+SETUP_CHECKLIST.md
+
+# Supabase local config (not needed at runtime)
+supabase/
+
+# Logs
+*.log
+logs/
