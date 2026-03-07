@@ -12,6 +12,7 @@ export const createItineraryDaySchema = z.object({
       .positive('Day number must be a positive integer'),
     description: z.string().min(1, 'Description is required'),
     imageUrl: z.string().url('Image URL must be a valid URL'),
+    imageTitle: z.string().min(1).optional().nullable(),
   }),
 });
 
@@ -25,6 +26,7 @@ export const updateItineraryDaySchema = z.object({
     .object({
       description: z.string().min(1).optional(),
       imageUrl: z.string().url().optional(),
+      imageTitle: z.string().min(1).optional().nullable(),
     })
     .refine((data) => Object.keys(data).length > 0, {
       message: 'At least one field must be provided for update',

@@ -14,6 +14,7 @@ const mapDetailsRow = (row: Record<string, any>) => ({
   exclusions: row.exclusions,
   accommodationDescription: row.accommodation_description,
   accommodationMediaUrl: row.accommodation_media_url,
+  featureTitle: row.feature_title,
   featureDescription: row.feature_description,
   featureMediaUrl: row.feature_media_url,
   featureIsVideo: row.feature_is_video,
@@ -100,6 +101,7 @@ export class TourDetailsController {
           exclusions: body.exclusions,
           accommodation_description: body.accommodationDescription ?? null,
           accommodation_media_url: body.accommodationMediaUrl ?? null,
+          feature_title: body.featureTitle ?? null,
           feature_description: body.featureDescription ?? null,
           feature_media_url: body.featureMediaUrl ?? null,
           feature_is_video: body.featureIsVideo ?? false,
@@ -141,6 +143,7 @@ export class TourDetailsController {
       if (body.exclusions !== undefined) dbPatch.exclusions = body.exclusions;
       if (body.accommodationDescription !== undefined) dbPatch.accommodation_description = body.accommodationDescription;
       if (body.accommodationMediaUrl !== undefined) dbPatch.accommodation_media_url = body.accommodationMediaUrl;
+      if (body.featureTitle !== undefined) dbPatch.feature_title = body.featureTitle;
       if (body.featureDescription !== undefined) dbPatch.feature_description = body.featureDescription;
       if (body.featureMediaUrl !== undefined) dbPatch.feature_media_url = body.featureMediaUrl;
       if (body.featureIsVideo !== undefined) dbPatch.feature_is_video = body.featureIsVideo;

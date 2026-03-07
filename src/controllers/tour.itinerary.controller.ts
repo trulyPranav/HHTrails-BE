@@ -11,6 +11,7 @@ const mapItineraryRow = (row: Record<string, any>) => ({
   dayNumber: row.day_number,
   description: row.description,
   imageUrl: row.image_url,
+  imageTitle: row.image_title,
   createdAt: row.created_at,
   updatedAt: row.updated_at,
 });
@@ -85,6 +86,7 @@ export class TourItineraryController {
           day_number: body.dayNumber,
           description: body.description,
           image_url: body.imageUrl,
+          image_title: body.imageTitle ?? null,
         })
         .select()
         .single();
@@ -121,6 +123,7 @@ export class TourItineraryController {
       const dbPatch: Record<string, unknown> = {};
       if (body.description !== undefined) dbPatch.description = body.description;
       if (body.imageUrl !== undefined) dbPatch.image_url = body.imageUrl;
+      if (body.imageTitle !== undefined) dbPatch.image_title = body.imageTitle;
 
       const { data, error } = await supabaseAdmin
         .from('tour_itinerary')
