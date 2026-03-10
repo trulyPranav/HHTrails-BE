@@ -14,6 +14,7 @@ export const envSchema = z.object({
   ADMIN_SECRET_KEY: z.string().min(1),
   ADMIN_USERNAME: z.string().min(1),
   ADMIN_PASSWORD: z.string().min(1),
+  FRONTEND_URL: z.string().url().default('http://localhost:3000'),
   ALLOWED_ORIGINS: z.string().default('http://localhost:3000'),
   RATE_LIMIT_WINDOW_MS: z.string().default('900000'),
   RATE_LIMIT_MAX_REQUESTS: z.string().default('100'),

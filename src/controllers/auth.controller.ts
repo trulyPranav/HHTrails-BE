@@ -4,6 +4,9 @@ import { sendSuccess } from '../utils/response';
 import { AuthenticationError, ValidationError, ConflictError } from '../utils/errors';
 import { SignUpInput, SignInInput, GoogleAuthInput } from '../validators/auth.validator';
 import { AuthRequest } from '../middleware/auth';
+import { validateEnv } from '../config/env';
+
+const env = validateEnv();
 
 export class AuthController {
   /**
@@ -145,13 +148,12 @@ export class AuthController {
   /**
    * Get Google OAuth URL
    */
-  static async getGoogleAuthUrl(req: Request, res: Response, next: NextFunction): Promise<void> {
+  static async getGoogleAuthUrl(_req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          // redirectTo: `${req.protocol}://${req.get('host')}/google/callback`,
-          redirectTo: `${req.protocol}://hhtrails.com/google/callback`,
+          redirectTo: `${env.FRONTEND_URL}/google/callback`,
         },
       });
 
