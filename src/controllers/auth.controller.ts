@@ -150,8 +150,8 @@ export class AuthController {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          // redirectTo: `${req.protocol}://${req.get('host')}/google-callback`,
-          redirectTo: `${req.protocol}://localhost:5173/google/callback`,
+          redirectTo: `${req.protocol}://${req.get('host')}/google/callback`,
+          // redirectTo: `${req.protocol}://localhost:5173/google/callback`,
         },
       });
 
